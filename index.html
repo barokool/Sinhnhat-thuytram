@@ -3,35 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Popup</title>
+    <title>Purple Heart Rain</title>
     <link rel="stylesheet" href="index.css" />
-    <script src="script.js" defer></script>
   </head>
   <body>
-    <button id="open">Thùy Trâm bấm zô đây</button>
-
-    <div class="popup-container" id="container">
-      <div class="popup">
-        <button id="close">&times;</button>
-        <h1 style="color: red">Sinh nhật zui zẻ</h1>
-        <img
-          src="https://media.giphy.com/media/Dw5nJb48c3N5jHFOTA/giphy.gif"
-          alt="/"
-        />
-      </div>
+    <div class="form">
+      <h1>Input password to get mistery thing</h1>
+      <form>
+        <input id="input" type="text" />
+        <button id="submit-btn">submit</button>
+      </form>
+      <button id="hint">Hint</button>
+      <p>Made by 3zo cua em</p>
     </div>
+
     <script>
-      const open = document.getElementById("open");
-      const close = document.getElementById("close");
-      const container = document.getElementById("container");
-
-      open.addEventListener("click", () => {
-        container.classList.add("active");
+      const input = document.querySelector("#input");
+      const submit = document.querySelector("#submit-btn");
+      submit.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (input.value === "141410") alert("Saranghe");
+        else alert("wrong password");
       });
-
-      close.addEventListener("click", () => {
-        container.classList.remove("active");
+      const hint = document.querySelector("#hint");
+      hint.addEventListener("click", () => {
+        alert("your phone password");
       });
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+        heart.innerText = "💜";
+        document.body.appendChild(heart);
+        setTimeout(() => {
+          heart.remove();
+        }, 5000);
+      }
+
+      setInterval(createHeart, 300);
     </script>
   </body>
 </html>

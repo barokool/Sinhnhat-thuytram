@@ -7,6 +7,22 @@
     <link rel="stylesheet" href="index.css" />
   </head>
   <body>
+    <div class="popup-container" id="container">
+      <div class="popup">
+        <button id="close">&times;</button>
+        <div class="gif">
+          <img
+            src="https://media.giphy.com/media/n196A8Pos4sOVRJyfe/giphy.gif"
+            alt="img"
+          />
+          <img
+            src="https://media.giphy.com/media/pxmwzzIIE2pIdz47Nv/giphy.gif"
+            alt="img"
+          />
+          <p>I lòvé you <3 <3</p>
+        </div>
+      </div>
+    </div>
     <div class="form">
       <h1>Input password to get mistery thing</h1>
       <form>
@@ -18,12 +34,15 @@
     </div>
 
     <script>
+      const close = document.getElementById("close");
+      const container = document.getElementById("container");
       const input = document.querySelector("#input");
       const submit = document.querySelector("#submit-btn");
       submit.addEventListener("click", (e) => {
         e.preventDefault();
-        if (input.value === "141410") alert("Saranghe");
-        else alert("wrong password");
+        if (input.value === "141410") {
+          container.classList.add("active");
+        } else alert("wrong password");
       });
       const hint = document.querySelector("#hint");
       hint.addEventListener("click", () => {
@@ -42,6 +61,10 @@
       }
 
       setInterval(createHeart, 300);
+
+      close.addEventListener("click", () => {
+        container.classList.remove("active");
+      });
     </script>
   </body>
 </html>
